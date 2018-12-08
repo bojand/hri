@@ -4,6 +4,7 @@ package hri
 import (
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 var (
@@ -39,12 +40,15 @@ var (
 		"snake", "squid", "starfish", "stingray", "swan", "termite", "tiger", "treefrog",
 		"turkey", "turtle", "vampirebat", "walrus", "warthog", "wasp", "wolverine", "wombat",
 		"yak", "zebra"}
+
+	source = rand.NewSource(time.Now().UnixNano())
+	random = rand.New(source)
 )
 
 // Random returns a random human readable string id.
 func Random() string {
-	adj := adjectives[rand.Intn(len(adjectives))]
-	noun := nouns[rand.Intn(len(nouns))]
-	num := rand.Intn(100)
+	adj := adjectives[random.Intn(len(adjectives))]
+	noun := nouns[random.Intn(len(nouns))]
+	num := random.Intn(100)
 	return fmt.Sprintf("%s-%s-%d", adj, noun, num)
 }

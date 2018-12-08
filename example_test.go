@@ -8,5 +8,4 @@ import (
 
 func ExampleRandom() {
 	fmt.Println(hri.Random())
-	// Output: chatty-kangaroo-18
 }
